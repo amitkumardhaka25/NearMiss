@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NearMissIncident } from "../models/nearMissSchema";
 import { incidents } from "../data/incidents";
 import "./Dashboard.css";
+import KPICards from "./charts/KPICards";
 import CategoryBar from "./charts/CategoryBar";
 import LocationBar from "./charts/LocationBar";
 import SeverityPie from "./charts/SeverityPie";
@@ -29,12 +30,7 @@ export default function Dashboard() {
 
       {viewMode === "dashboard" ? (
         <div className="dashboard-content">
-          <div className="kpi-cards">
-            <div className="kpi-card">Total Near Misses: {data?.length || 0}</div>
-            <div className="kpi-card">
-              High Severity (3+): {data?.filter(d => d?.severity_level && d?.severity_level >= 3).length || 0}
-            </div>
-          </div>
+          <KPICards data={data} />
 
           <div className="charts-grid">
             <div className="chart-wrapper">
