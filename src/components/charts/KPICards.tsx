@@ -1,5 +1,5 @@
 import { NearMissIncident } from "../../models/nearMissSchema";
-import "./KPICards.css";
+import "../../App.css";
 
 interface KPICardsProps {
   data: NearMissIncident[];

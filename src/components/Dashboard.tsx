@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NearMissIncident } from "../models/nearMissSchema";
 import { incidents } from "../data/incidents";
-import "./Dashboard.css";
+import "../App.css";
 import KPICards from "./charts/KPICards";
 import CategoryBar from "./charts/CategoryBar";
 import LocationBar from "./charts/LocationBar";

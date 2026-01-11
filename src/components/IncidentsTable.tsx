@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { NearMissIncident } from "../models/nearMissSchema";
 import { severityLabel } from "../utils/dataHelpers";
-import "./IncidentsTable.css";
+import "../App.css";
 
 interface IncidentsTableProps {
   data: NearMissIncident[];
