@@ -1,16 +1,30 @@
-# React + Vite
+# Near Miss Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive dashboard for analyzing near miss incidents in construction projects. This app processes a real-world JSON dataset (~7,800 records) and visualizes key insights using charts and trend analysis. Built with React and Vite for fast development and a clean user interface.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Loads and processes JSON datasets with optional JSON-to-CSV conversion.
+- Visualizations include bar charts, line charts, pie/donut charts, and trend analysis.
+- Handles missing or incomplete data gracefully to ensure stability.
+- Interactive and responsive UI for easy exploration of near miss incidents.
+- Optional AI/LLM integration for question answering on dataset insights.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Frontend: React + Vite
+- Charting Library: Recharts (or specify what you used)
+- Backend: (Specify if used, e.g., Node.js/Express or none)
+- Dataset: JSON
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/near-miss-dashboard.git
+   cd near-miss-dashboard
+2.Install dependencies 
+   npm install
+3.Start the development server
+  npm run dev
+4. Open your browser at http://localhost:5173 (default Vite port) and upload the dataset.
