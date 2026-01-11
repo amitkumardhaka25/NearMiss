@@ -1,11 +1,16 @@
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
+import { NearMissIncident } from "../../models/nearMissSchema";
 import { severityLabel } from "../../utils/dataHelpers";
-import { getSeverityColor, severityColors } from "../../utils/colors";
+import { severityColors } from "../../utils/colors";
 
-export default function SeverityPie({ data }: { data: any[] }) {
+interface SeverityPieProps {
+  data: NearMissIncident[];
+}
+
+export default function SeverityPie({ data }: SeverityPieProps) {
   const map: Record<string, number> = {};
-  data.forEach(d => {
-    const label = severityLabel(d.severity_level);
+  (data || []).forEach(d => {
+    const label = severityLabel(d?.severity_level);
     map[label] = (map[label] || 0) + 1;
   });
   const chartData = Object.entries(map).map(([name, value]) => ({ name, value }));

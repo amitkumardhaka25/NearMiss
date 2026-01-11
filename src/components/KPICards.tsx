@@ -1,6 +1,12 @@
-export default function KPICards({ data }) {
-  const total = data.length;
-  const highSeverity = data.filter(d => d.severity_level >= 3).length;
+import { NearMissIncident } from "../models/nearMissSchema";
+
+interface KPICardsProps {
+  data: NearMissIncident[];
+}
+
+export default function KPICards({ data }: KPICardsProps) {
+  const total = data?.length || 0;
+  const highSeverity = data?.filter(d => d?.severity_level && d.severity_level >= 3).length || 0;
 
   return (
     <div style={{ display: "flex", gap: 20, marginBottom: 20 }}>

@@ -1,9 +1,14 @@
 import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { NearMissIncident } from "../../models/nearMissSchema";
 import { groupByCount } from "../../utils/dataHelpers";
 import { chartColorMap } from "../../utils/colors";
 
-export default function CategoryBar({ data }: { data: any[] }) {
-  const chartData = groupByCount(data, "primary_category");
+interface CategoryBarProps {
+  data: NearMissIncident[];
+}
+
+export default function CategoryBar({ data }: CategoryBarProps) {
+  const chartData = groupByCount(data || [], "primary_category");
 
   return (
     <>

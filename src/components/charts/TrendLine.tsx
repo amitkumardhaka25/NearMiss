@@ -1,9 +1,14 @@
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { NearMissIncident } from "../../models/nearMissSchema";
 import { groupByMonth } from "../../utils/dataHelpers";
 import { chartColorMap } from "../../utils/colors";
 
-export default function TrendLine({ data }: { data: any[] }) {
-  const chartData = groupByMonth(data);
+interface TrendLineProps {
+  data: NearMissIncident[];
+}
+
+export default function TrendLine({ data }: TrendLineProps) {
+  const chartData = groupByMonth(data || []);
 
   return (
     <>

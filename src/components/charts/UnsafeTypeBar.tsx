@@ -1,9 +1,14 @@
 import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { NearMissIncident } from "../../models/nearMissSchema";
 import { groupByCount } from "../../utils/dataHelpers";
 import { chartColorMap } from "../../utils/colors";
 
-export default function UnsafeTypeBar({ data }: { data: any[] }) {
-  const chartData = groupByCount(data, "unsafe_condition_or_behavior");
+interface UnsafeTypeBarProps {
+  data: NearMissIncident[];
+}
+
+export default function UnsafeTypeBar({ data }: UnsafeTypeBarProps) {
+  const chartData = groupByCount(data || [], "unsafe_condition_or_behavior");
 
   return (
     <>

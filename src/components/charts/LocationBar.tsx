@@ -1,9 +1,14 @@
 import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { NearMissIncident } from "../../models/nearMissSchema";
 import { groupByCount } from "../../utils/dataHelpers";
 import { chartColorMap } from "../../utils/colors";
 
-export default function LocationBar({ data }: { data: any[] }) {
-  const chartData = groupByCount(data, "location");
+interface LocationBarProps {
+  data: NearMissIncident[];
+}
+
+export default function LocationBar({ data }: LocationBarProps) {
+  const chartData = groupByCount(data || [], "location");
 
   return (
     <>
