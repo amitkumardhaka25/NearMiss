@@ -9,10 +9,26 @@ import SeverityPie from "./charts/SeverityPie";
 import TrendLine from "./charts/TrendLine";
 import UnsafeTypeBar from "./charts/UnsafeTypeBar";
 import IncidentsTable from "./IncidentsTable";
+import IncidentsModal from "./charts/IncidentsModal";
 
 export default function Dashboard() {
   const data: NearMissIncident[] = incidents;
   const [viewMode, setViewMode] = useState<"dashboard" | "table">("dashboard");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalIncidents, setModalIncidents] = useState<NearMissIncident[]>([]);
+  const [modalTitle, setModalTitle] = useState<string>("Near Miss Incidents");
+
+  const openModal = (incidents: NearMissIncident[], title: string = "Near Miss Incidents") => {
+    console.log("Opening modal with incidents:", incidents);
+    setModalIncidents(incidents);
+    setModalTitle(title);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalIncidents([]);
+  };
 
   if (!data?.length) return <p>No data available</p>;
 
@@ -30,31 +46,26 @@ export default function Dashboard() {
 
       {viewMode === "dashboard" ? (
         <div className="dashboard-content">
-          <KPICards data={data} />
+          <KPICards data={data} onCardClick={openModal} />
 
           <div className="charts-grid">
             <div className="chart-wrapper">
-              <div className="chart-title">Near Misses by Category</div>
-              <CategoryBar data={data} />
+              <CategoryBar data={data} onOpenModal={openModal} />
             </div>
 
             <div className="chart-wrapper">
-              <div className="chart-title">Severity Distribution</div>
               <SeverityPie data={data} />
             </div>
 
             <div className="chart-wrapper">
-              <div className="chart-title">Trend Over Time</div>
               <TrendLine data={data} />
             </div>
 
             <div className="chart-wrapper">
-              <div className="chart-title">Near Misses by Location</div>
               <LocationBar data={data} />
             </div>
 
             <div className="chart-wrapper">
-              <div className="chart-title">Unsafe Condition vs Behavior</div>
               <UnsafeTypeBar data={data} />
             </div>
           </div>
@@ -62,6 +73,13 @@ export default function Dashboard() {
       ) : (
         <IncidentsTable data={data} />
       )}
+
+      <IncidentsModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        incidents={modalIncidents}
+        title={modalTitle}
+      />
     </div>
   );
 }

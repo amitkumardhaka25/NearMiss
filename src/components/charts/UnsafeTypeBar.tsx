@@ -1,7 +1,7 @@
 import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { NearMissIncident } from "../../models/nearMissSchema";
-import { groupByCount } from "../../utils/dataHelpers";
 import { chartColorMap } from "../../utils/colors";
+import { groupByCount } from "../../utils/dataHelpers";
 
 interface UnsafeTypeBarProps {
   data: NearMissIncident[];

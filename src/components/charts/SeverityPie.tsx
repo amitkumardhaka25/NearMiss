@@ -1,7 +1,7 @@
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
 import { NearMissIncident } from "../../models/nearMissSchema";
-import { severityLabel } from "../../utils/dataHelpers";
 import { severityColors } from "../../utils/colors";
+import { severityLabel } from "../../utils/dataHelpers";
 
 interface SeverityPieProps {
   data: NearMissIncident[];

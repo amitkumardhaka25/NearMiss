@@ -1,8 +1,7 @@
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { NearMissIncident } from "../../models/nearMissSchema";
-import { groupByMonth } from "../../utils/dataHelpers";
 import { chartColorMap } from "../../utils/colors";
-
+import { groupByMonth } from "../../utils/dataHelpers";
 interface TrendLineProps {
   data: NearMissIncident[];
 }
