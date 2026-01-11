@@ -1,7 +1,8 @@
 import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { groupByCount } from "../../utils/dataHelpers";
+import { chartColorMap } from "../../utils/colors";
 
-export default function UnsafeTypeBar({ data }) {
+export default function UnsafeTypeBar({ data }: { data: any[] }) {
   const chartData = groupByCount(data, "unsafe_condition_or_behavior");
 
   return (
@@ -12,7 +13,7 @@ export default function UnsafeTypeBar({ data }) {
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-          <Bar dataKey="value" fill="#ff7f50" />
+          <Bar dataKey="value" fill={chartColorMap.unsafeTypeBar} />
         </BarChart>
       </ResponsiveContainer>
     </>

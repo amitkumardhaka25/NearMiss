@@ -1,7 +1,8 @@
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { groupByMonth } from "../../utils/dataHelpers";
+import { chartColorMap } from "../../utils/colors";
 
-export default function TrendLine({ data }) {
+export default function TrendLine({ data }: { data: any[] }) {
   const chartData = groupByMonth(data);
 
   return (
@@ -12,7 +13,12 @@ export default function TrendLine({ data }) {
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-          <Line dataKey="value" stroke="#8884d8" />
+          <Line 
+            dataKey="value" 
+            stroke={chartColorMap.trendLine} 
+            strokeWidth={2}
+            dot={{ fill: chartColorMap.trendLine }}
+          />
         </LineChart>
       </ResponsiveContainer>
     </>

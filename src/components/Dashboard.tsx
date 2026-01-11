@@ -19,7 +19,7 @@ export default function Dashboard() {
       <div className="kpi-cards">
         <div className="kpi-card">Total Near Misses: {data.length}</div>
         <div className="kpi-card">
-          High Severity (3+): {data.filter(d => d.severity_level >= 3).length}
+          High Severity (3+): {data.filter(d => d?.severity_level && d?.severity_level >= 3).length}
         </div>
       </div>
 

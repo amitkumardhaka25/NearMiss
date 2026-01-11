@@ -1,7 +1,8 @@
 import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { groupByCount } from "../../utils/dataHelpers";
+import { chartColorMap } from "../../utils/colors";
 
-export default function CategoryBar({ data }) {
+export default function CategoryBar({ data }: { data: any[] }) {
   const chartData = groupByCount(data, "primary_category");
 
   return (
@@ -12,7 +13,7 @@ export default function CategoryBar({ data }) {
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-          <Bar dataKey="value" fill="#8884d8" />
+          <Bar dataKey="value" fill={chartColorMap.categoryBar} />
         </BarChart>
       </ResponsiveContainer>
     </>

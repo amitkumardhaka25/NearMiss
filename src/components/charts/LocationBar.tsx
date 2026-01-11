@@ -1,7 +1,8 @@
 import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { groupByCount } from "../../utils/dataHelpers";
+import { chartColorMap } from "../../utils/colors";
 
-export default function LocationBar({ data }) {
+export default function LocationBar({ data }: { data: any[] }) {
   const chartData = groupByCount(data, "location");
 
   return (
@@ -12,7 +13,7 @@ export default function LocationBar({ data }) {
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-          <Bar dataKey="value" fill="#ffc658" />
+          <Bar dataKey="value" fill={chartColorMap.locationBar} />
         </BarChart>
       </ResponsiveContainer>
     </>

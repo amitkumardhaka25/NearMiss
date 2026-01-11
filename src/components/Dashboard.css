@@ -4,6 +4,14 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: rgb(79, 65, 185);
   min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: auto;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 /* Page title */
@@ -35,8 +43,9 @@
 /* Charts container */
 .charts-grid {
   display: grid;
-  gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
 }
 
 /* Chart title */
@@ -45,6 +54,7 @@
   font-weight: 600;
   font-size: 1rem;
   color: #333;
+  text-align: center;
 }
 
 /* Optional: Pie/Bar chart container */
@@ -53,4 +63,7 @@
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
 }
