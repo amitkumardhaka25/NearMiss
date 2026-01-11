@@ -1,6 +1,6 @@
 import { NearMissIncident } from "../../models/nearMissSchema";
 import IncidentsTable from "../IncidentsTable";
-import "../App.css";
+import "../../App.css";
 
 interface IncidentsModalProps {
   isOpen: boolean;

@@ -19,7 +19,6 @@ export default function Dashboard() {
   const [modalTitle, setModalTitle] = useState<string>("Near Miss Incidents");
 
   const openModal = (incidents: NearMissIncident[], title: string = "Near Miss Incidents") => {
-    console.log("Opening modal with incidents:", incidents);
     setModalIncidents(incidents);
     setModalTitle(title);
     setIsModalOpen(true);

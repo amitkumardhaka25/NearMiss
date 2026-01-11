@@ -13,15 +13,14 @@ export default function CategoryBar({ data, onOpenModal }: CategoryBarProps) {
   const chartData = groupByCount(safeData, "primary_category");
 
   const handleBarClick = (categoryName: string) => {
-    if (!onOpenModal) return;
-    
-    // Filter incidents by the selected category
-    const filteredIncidents = safeData.filter(
-      (incident) => incident?.primary_category === categoryName
+
+    const filteredIncidents = safeData?.filter(
+      (incident) => incident?.primary_category?.toLowerCase() === categoryName?.toLowerCase()
+       || incident?.primary_category?.length === 0
     );
-    
-    if (filteredIncidents.length > 0) {
-      onOpenModal(filteredIncidents, `Incidents: ${categoryName}`);
+
+    if (filteredIncidents?.length > 0) {
+      onOpenModal?.(filteredIncidents, `Incidents: ${categoryName}`);
     }
   };
 
@@ -37,7 +36,7 @@ export default function CategoryBar({ data, onOpenModal }: CategoryBarProps) {
             dataKey="value" 
             fill={chartColorMap.categoryBar}
             onClick={(data: any) => {
-              if (data && data.name) {
+              if (data && data?.name) {
                 handleBarClick(data.name);
               }
             }}
